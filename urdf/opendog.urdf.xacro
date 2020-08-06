@@ -16,14 +16,14 @@
         <visual>
             <origin xyz="0.25 0.185 0.002" rpy="0 0 1.5708" />
             <geometry>
-                <mesh filename="package://opendog_description/meshes/base.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="${base_mesh_path}" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="black" />
         </visual>
     </link>
     <link name="base_inertia">    
         <inertial>
-            <origin xyz="0 0 0" />
+            <origin xyz="-0.1 0 0" />
             <mass value="${base_mass}" />
             <inertia ixx="${(1/12) * base_mass * (base_y_length * base_y_length + base_z_length * base_z_length)}" ixy="0.0" ixz="0.0"
                      iyy="${(1/12) * base_mass * (base_x_length * base_x_length + base_z_length * base_z_length)}" iyz="0.0"
@@ -33,7 +33,7 @@
     <joint name="base_link_to_base_inertia" type="fixed">    
         <parent link="base_link"/>    
         <child link="base_inertia"/>    
-        <origin rpy="0 0 0" xyz="0 0 0"/>  
+        <origin rpy="0 0 0" xyz="0.05 0 0"/>  
     </joint>  
 
     <gazebo reference="base_link">
